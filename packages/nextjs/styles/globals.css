@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
+/* Dark varyant (daisyUI ile uyumlu) */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
@@ -9,115 +8,106 @@
   --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* DaisyUI temel tema seçimi */
 @plugin "daisyui" {
   themes:
     light,
     dark --prefersdark;
 }
 
+/* ===== CELO PALETİ ===== */
+/* LIGHT THEME */
 @plugin "daisyui/theme" {
   name: "light";
 
-  --color-primary: #93bbfb;
-  --color-primary-content: #212638;
-  --color-secondary: #dae8ff;
-  --color-secondary-content: #212638;
-  --color-accent: #93bbfb;
-  --color-accent-content: #212638;
-  --color-neutral: #212638;
+  /* Celo Gold & Green (LIGHT) */
+  --color-primary: #FBCC5C;            /* Celo Gold */
+  --color-primary-content: #1A1F16;
+  --color-secondary: #35D07F;          /* Celo Green */
+  --color-secondary-content: #ffffff;
+  --color-accent: #2ABBA7;             /* Teal/Mint */
+  --color-accent-content: #0A1E1A;
+
+  --color-neutral: #1A1F16;            /* Ana metin */
   --color-neutral-content: #ffffff;
-  --color-base-100: #ffffff;
-  --color-base-200: #f4f8ff;
-  --color-base-300: #dae8ff;
-  --color-base-content: #212638;
-  --color-info: #93bbfb;
-  --color-success: #34eeb6;
-  --color-warning: #ffcf72;
-  --color-error: #ff8863;
+
+  --color-base-100: #ffffff;           /* Kart zemin */
+  --color-base-200: #FFF8E6;           /* Gold tint */
+  --color-base-300: #FFE9B3;           /* Daha sıcak alt ton */
+  --color-base-content: #1A1F16;
+
+  --color-info: #2F80ED;
+  --color-success: #35D07F;
+  --color-warning: #FBCC5C;
+  --color-error: #FF6B6B;
 
   --radius-field: 9999rem;
   --radius-box: 1rem;
   --tt-tailw: 6px;
 }
 
+/* DARK THEME */
 @plugin "daisyui/theme" {
   name: "dark";
 
-  --color-primary: #212638;
-  --color-primary-content: #f9fbff;
-  --color-secondary: #323f61;
-  --color-secondary-content: #f9fbff;
-  --color-accent: #4969a6;
-  --color-accent-content: #f9fbff;
-  --color-neutral: #f9fbff;
-  --color-neutral-content: #385183;
-  --color-base-100: #385183;
-  --color-base-200: #2a3655;
-  --color-base-300: #212638;
-  --color-base-content: #f9fbff;
-  --color-info: #385183;
-  --color-success: #34eeb6;
-  --color-warning: #ffcf72;
-  --color-error: #ff8863;
+  /* Celo Gold & Green (DARK) */
+  --color-primary: #FBCC5C;
+  --color-primary-content: #1A1F16;
+  --color-secondary: #35D07F;
+  --color-secondary-content: #0B1F14;
+
+  --color-accent: #2ABBA7;
+  --color-accent-content: #061A16;
+
+  --color-neutral: #E9F0E6;            /* Açık metin */
+  --color-neutral-content: #111417;
+
+  --color-base-100: #101412;           /* Koyu zemin (yeşilimsi) */
+  --color-base-200: #0D1612;
+  --color-base-300: #0A120F;
+  --color-base-content: #E9F0E6;
+
+  --color-info: #3C89F7;
+  --color-success: #35D07F;
+  --color-warning: #FBCC5C;
+  --color-error: #FF7B7B;
 
   --radius-field: 9999rem;
   --radius-box: 1rem;
-
   --tt-tailw: 6px;
   --tt-bg: var(--color-primary);
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* ===== Uyumluluk & Baz stiller ===== */
 @layer base {
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
+    /* Tailwind v4 border-color değişikliği uyumluluğu */
     border-color: var(--color-gray-200, currentColor);
   }
 
-  p {
-    margin: 1rem 0;
-  }
+  p { margin: 1rem 0; }
 
-  body {
-    min-height: 100vh;
-  }
+  body { min-height: 100vh; }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  h1, h2, h3, h4 {
     margin-bottom: 0.5rem;
     line-height: 1;
   }
 }
 
+/* Sayfa arkaplanı */
 :root,
 [data-theme] {
   background: var(--color-base-200);
 }
 
-.btn {
-  @apply shadow-md;
-}
+/* Bileşen yardımcıları */
+.btn { @apply shadow-md; }
+.btn.btn-ghost { @apply shadow-none; }
 
-.btn.btn-ghost {
-  @apply shadow-none;
-}
-
-.link {
-  text-underline-offset: 2px;
-}
-
-.link:hover {
-  opacity: 80%;
-}
+.link { text-underline-offset: 2px; }
+.link:hover { opacity: 80%; }
