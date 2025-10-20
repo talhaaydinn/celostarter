@@ -56,5 +56,4 @@ To make decentralized project funding accessible to everyone — especially for 
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/celostarter.git
-cd celostarter
+git clone [https://github.com/your-username/celostarter.git](https://github.com/talhaaydinn/dapps)
