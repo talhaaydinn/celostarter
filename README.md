@@ -31,37 +31,12 @@ To make decentralized project funding accessible to everyone — especially for 
 
 ---
 
-## 💰 Tokenomics
-
-| Token | Symbol | Utility |
-|--------|---------|----------|
-| CeloStarter Token | `$START` | Access, voting, rewards |
-
-**$START** serves as:
-- Governance token (vote on listed projects)
-- Staking asset for early access to IDOs
-- Reward mechanism for active investors
-
 ### 🔸 Staking Tiers
 | Tier | Requirement | Benefits |
 |------|--------------|-----------|
 | Bronze | 100 START | Standard access |
 | Silver | 500 START | Early IDO whitelist |
 | Gold | 1000 START | Priority access + bonus NFT |
-
----
-
-## 🧠 Smart Contract Modules
-
-| Module | Description |
-|--------|--------------|
-| `LaunchFactory.sol` | Handles project registration and fundraising logic |
-| `FundingPool.sol` | Manages micro-investments in cUSD |
-| `MilestoneManager.sol` | Releases funds per milestone approval |
-| `BadgeNFT.sol` | Mints supporter NFTs based on participation |
-| `Token.sol` | Defines $START ERC20 token |
-
-All contracts are deployed and verified on **Celo Alfajores Testnet**.
 
 ---
 
